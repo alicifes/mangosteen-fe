@@ -1,7 +1,7 @@
-import {defineComponent} from 'vue';
+import { defineComponent } from "vue";
 
 export const Tab = defineComponent({
   setup() {
-   return () => (<div>Tab</div>)
-  }
-})
+    return () => <div>Tab</div>;
+  },
+});

@@ -9,6 +9,6 @@ export default defineConfig({
     vueJsx({
       transformOn: true,
       mergeProps: true
-    })
-  ]
+    }),
+  ],
 });

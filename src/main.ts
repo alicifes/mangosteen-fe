@@ -1,20 +1,14 @@
-import { createApp } from 'vue'
-import {App} from './App';
-import {Tab} from './views/Tab'
-import {Bar} from './views/Bar';
-import {createRouter,createWebHashHistory} from 'vue-router';
-
-const routes = [
-  { path: '/', component: Tab},
-  { path: '/bar', component: Bar},
-]
+import { createApp } from "vue";
+import { App } from "./App";
+import { createRouter } from "vue-router";
+import { routes } from "./config/routes";
+import { history } from "./shared/history";
 
 const router = createRouter({
-  // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
-  history: createWebHashHistory(),
-  routes, // `routes: routes` 的缩写
-})
+  history,
+  routes,
+});
 
-const app = createApp(App)
-  app.use(router)
-  app.mount('#app')
+const app = createApp(App);
+app.use(router);
+app.mount("#app");
