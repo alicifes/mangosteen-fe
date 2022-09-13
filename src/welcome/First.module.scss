@@ -1,3 +1,32 @@
 .wrapper {
-
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  .card{
+    flex-grow: 1;
+    background: var(--welcome-card-gb);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    > h2 {
+      font-size:32px ;
+      text-align: center;
+    }
+  }
+  .actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32px;
+    margin: 0 16px;
+    padding: 24px 0;
+    color:var(--welcome-text) ;
+    > .fake{
+      visibility: hidden;
+    }
+  }
 }
