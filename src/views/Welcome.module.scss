@@ -5,8 +5,8 @@
   background-image: linear-gradient(to bottom,var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%);
   margin-bottom: var(--welcome-nav-height);
   > header {
-    padding-top: 66px;
     flex-shrink: 0;
+    padding-top: 66px;
     display: flex;
     align-items: center;
     justify-content: center;

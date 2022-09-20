@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: var(--welcome-nav-gap);
-  margin-bottom: 10px;
-  .card{
+  > .card{
     flex-grow: 1;
     background: var(--welcome-card-gb);
     padding: 16px;
@@ -12,28 +11,27 @@
     margin: 16px 16px 0;
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
     justify-content: center;
     > h2 {
       margin-top: 40px;
     }
   }
-  .actions{
+  > .actions{
     position: fixed;
-    z-index: var(--z-index-buttom-nav);
+    z-index: var(--z-index-bottom-nav);
+    background: var(--welcome-bg-end);
     left: 0;
     bottom: 0;
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     font-size: 24px;
     height: var(--welcome-nav-height);
-    color:var(--welcome-text) ;
-    background: var(--welcome-bg-end);
+    color: var(--welcome-text);
     padding: 0 16px var(--welcome-nav-gap);
-    > .fake{
-      visibility: hidden;
-    }
+    > .fake{visibility: hidden;}
   }
 }
