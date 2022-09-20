@@ -5,7 +5,7 @@ export const WelcomeLayout: FunctionalComponent = (props, context) => {
   const {
     slots: { icon, title, buttons },
   } = context;
-  return () => (
+  return (
     <div class={s.wrapper}>
       <div class={s.card}>
         {icon?.()}

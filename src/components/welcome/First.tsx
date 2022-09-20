@@ -1,7 +1,6 @@
-import s from "./First.module.scss";
 import pig from "../../assets/icons/pig.svg";
 import { WelcomeLayout } from "./WelcomeLayout";
-
+import s from "./WelcomeLayout.module.scss";
 // export const First = defineComponent({
 //   setup() {
 //     return () => (

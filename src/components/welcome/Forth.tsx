@@ -1,6 +1,6 @@
 import cloud from "../../assets/icons/cloud.svg";
 import { WelcomeLayout } from "./WelcomeLayout";
-import s from "./First.module.scss";
+import s from "./WelcomeLayout.module.scss";
 
 export const Forth = () => (
   <WelcomeLayout>
