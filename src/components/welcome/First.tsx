@@ -1,5 +1,6 @@
 import pig from "../../assets/icons/pig.svg";
 import s from "./Welcome.module.scss";
+import {FunctionalComponent} from "vue";
 // export const First = defineComponent({
 //   setup() {
 //     return () => (
@@ -17,7 +18,7 @@ import s from "./Welcome.module.scss";
 //   },
 // });
 
-export const First = () => {
+export const First: FunctionalComponent = () => {
   return <div class={s.card}>
     <img src={pig}/>
     <h2>会挣钱<br/>还会省钱</h2>
