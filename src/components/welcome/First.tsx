@@ -1,6 +1,5 @@
 import pig from "../../assets/icons/pig.svg";
-import { WelcomeLayout } from "./WelcomeLayout";
-import s from "./WelcomeLayout.module.scss";
+import s from "./Welcome.module.scss";
 // export const First = defineComponent({
 //   setup() {
 //     return () => (
@@ -18,26 +17,9 @@ import s from "./WelcomeLayout.module.scss";
 //   },
 // });
 
-export const First = () => (
-  <WelcomeLayout>
-    {{
-      icon: () => <img src={pig} class={s.icon} />,
-      title: () => (
-        <h2>
-          会省钱
-          <br />
-          还要会挣钱
-        </h2>
-      ),
-      buttons: () => (
-        <>
-          <router-link to={"/"} className={s.fake}>
-            跳过
-          </router-link>
-          <router-link to={"/2"}>下一页</router-link>
-          <router-link to={"/start"}>跳过</router-link>
-        </>
-      ),
-    }}
-  </WelcomeLayout>
-);
+export const First = () => {
+  return <div class={s.card}>
+    <img src={pig}/>
+    <h2>会挣钱<br/>还会省钱</h2>
+  </div>
+};

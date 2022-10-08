@@ -1,5 +1,5 @@
-import { defineComponent } from "vue";
-import { RouterView } from "vue-router";
+import { defineComponent, Transition, VNode } from "vue";
+import { RouteLocationNormalizedLoaded, RouterView } from "vue-router";
 import './assets/stylesheets/vars.scss'
 import "./App.scss"
 
