@@ -1,10 +1,10 @@
-import chart from "../../assets/icons/chart.svg";
+import alarm from "../../assets/icons/alarm.svg";
 import s from './Welcome.module.scss'
 import {FunctionalComponent} from "vue";
 
 export const Second:FunctionalComponent= () => (
     <div class={s.card}>
-      <img class={s.icon} src={chart}/>
+      <img class={s.icon} src={alarm}/>
       <h2>每日提醒<br/>不遗漏每一笔账单</h2>
     </div>
     )
