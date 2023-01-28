@@ -43,14 +43,16 @@ export const useSwipe = (element: Ref<HTMLElement | null>) => {
     swiping.value = false;
   };
   onMounted(() => {
+    if (!element.value) { return }
     element.value?.addEventListener("touchstart", onStart);
     element.value?.addEventListener("touchmove", onMove);
     element.value?.addEventListener("touchend", onEnd);
   });
   onUnmounted(() => {
-    element.value?.addEventListener("touchstart", onStart);
-    element.value?.addEventListener("touchmove", onMove);
-    element.value?.addEventListener("touchend", onEnd);
+    if (!element.value) { return }
+    element.value.removeEventListener('touchstart', onStart)
+    element.value.removeEventListener('touchmove', onMove)
+    element.value.removeEventListener('touchend', onEnd)
   });
   return { swiping, direction, distance };
 };
