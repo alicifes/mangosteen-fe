@@ -1,15 +1,13 @@
 import chart from "../../assets/icons/chart.svg";
 import s from "./welcome.module.scss";
+import {FunctionalComponent} from "vue";
 
-export const Third = () => {
-  return (
+export const Third:FunctionalComponent = () => (
     <div class={s.card}>
       <img class={s.icon} src={chart} />
-      <h2>
-        每日提醒
-        <br />
-        不遗漏每一笔账单
-      </h2>
+      <h2>每日提醒<br />不遗漏每一笔账单</h2>
     </div>
-  );
-};
+  )
+;
+
+Third.displayName = 'Third'
