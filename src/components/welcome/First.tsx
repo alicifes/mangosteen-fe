@@ -1,31 +1,13 @@
 import s from "./welcome.module.scss";
-import { defineComponent, ref, watchEffect } from "vue";
-import { useSwipe } from "../../hooks/useSwipe";
-import { useRouter } from "vue-router";
-export const First = defineComponent(() => {
-  const div = ref<HTMLElement | undefined>();
-  const router = useRouter();
-  const { swiping, direction } = useSwipe(div, {
-    beforeStart: (e) => {
-      e.preventDefault();
-    },
-  });
-  watchEffect(() => {
-    if (swiping.value && direction.value === "left") {
-      router.push(`/welcome/2`);
-    }
-  });
+import { FunctionalComponent } from "vue";
+export const First:FunctionalComponent = () => {
   //左滑
-  return () => (
-    <div class={s.card} ref={div}>
+  return <div class={s.card}>
       <svg>
         <use xlinkHref="#pig"></use>
       </svg>
-      <h2>
-        会挣钱
-        <br />
-        还会省钱
-      </h2>
+      <h2>会挣钱<br />还会省钱</h2>
     </div>
-  );
-});
+}
+
+First.displayName = 'First'
