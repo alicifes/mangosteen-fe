@@ -15,7 +15,7 @@ export const StartPage = defineComponent((props, context) => {
     <Navbar>{
       {
         default: () =>'山竹记账',
-        icon: () => <Icon name='menu'></Icon>
+        icon: () => <Icon name='menu' class={s.navIcon}></Icon>
       }
     }</Navbar>
     <Center class={s.pig_wrapper}>
