@@ -1,0 +1,17 @@
+.mask {
+    position: fixed;
+    background-color: var(--overlay-mask-bg);
+    top: var(--top-safe-area-height);
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--top-safe-area-height));
+}
+
+.overlay{
+    position: fixed;
+    z-index: var(--z-index-overlay);
+    background-color: var(--overlay-bg);
+    width: 16em;
+    top: var(--top-safe-area-height);
+    height: calc(100% - var(--top-safe-area-height));
+}
