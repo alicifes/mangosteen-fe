@@ -1,4 +1,5 @@
 import { defineComponent, ref } from "vue";
+import { RouterLink } from "vue-router";
 import { Button } from "../shared/Button";
 import { Center } from "../shared/Center";
 import { FloatButton } from "../shared/FloatButton";
@@ -27,9 +28,13 @@ export const StartPage = defineComponent((props, context) => {
       <Icon class={s.pig} name="pig" />
     </Center>
       <div class={s.button_wrapper}>
-        <Button class={s.button} onClick={onClick}>开始记账</Button>
+        <RouterLink to={'/items/create'}>
+          <Button class={s.button} onClick={onClick}>开始记账</Button>
+        </RouterLink>
       </div>
-      <FloatButton />
+        <RouterLink to={'/items/create'}>
+          <FloatButton iconName='add'/>
+        </RouterLink>
       {overlayVisible.value && <Overlay onClose={() => overlayVisible.value = false} />}
     </>
   );
