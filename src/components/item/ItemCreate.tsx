@@ -16,7 +16,7 @@ export const ItemCreate = defineComponent({
             title: () => "山竹记账",
             icon: () => <Icon name="back" class={s.navIcon}></Icon>,
             default: () => <div>
-              <Tabs selected={kind.value} onUpdateSelected = {(e)=> kind.value = e}>
+              <Tabs v-model:selected={kind.value}>
                 <Tab name='收入'>收入</Tab>
                 <Tab name= '支出'>支出</Tab>
               </Tabs>
