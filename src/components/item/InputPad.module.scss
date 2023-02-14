@@ -1,0 +1,16 @@
+.notes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttons {
+    border: 1px solid red;
+  > button {
+    border: none;
+    width: 25%;
+    height: 48px;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+  }
+}
