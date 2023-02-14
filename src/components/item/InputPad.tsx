@@ -9,73 +9,97 @@ export const InputPad = defineComponent({
     const buttons = [
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
+          console.log("1");
+        },
+      },
+      {
+        text: 2,
+        onClick: () => {
+          console.log("1");
+        },
+      },
+      {
+        text: 3,
+        onClick: () => {
+          console.log("1");
+        },
+      },
+      {
+        text: '+',
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
           console.log("1");
         },
       },
       {
         text: 1,
-        onclick: () => {
+        onClick: () => {
+          console.log("1");
+        },
+      },
+      {
+        text: 1,
+        onClick: () => {
           console.log("1");
         },
       },
@@ -88,7 +112,7 @@ export const InputPad = defineComponent({
         </span>
         <div class={s.buttons}>
           {buttons.map((item) => {
-            return <button onClick={item.onclick}>{item.text}</button>;
+            return <button onClick={item.onClick}>{item.text}</button>;
           })}
         </div>
       </>
