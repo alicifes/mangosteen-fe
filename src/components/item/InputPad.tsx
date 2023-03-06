@@ -2,6 +2,7 @@ import { defineComponent, PropType, ref } from "vue";
 import { Icon } from "../../shared/Icon";
 import s from "./InputPad.module.scss";
 import { DatePicker, Popup } from "vant";
+import 'vant/lib/index.css';
 import dayjs from 'dayjs';
 
 export const InputPad = defineComponent({
@@ -102,7 +103,6 @@ export const InputPad = defineComponent({
     const appendText = (num: Number | ".") => {
       console.log(num);
       console.log(refDate.value);
-      
     };
     return () => (
       <>
