@@ -5,6 +5,13 @@ import { DatePicker, Popup } from "vant";
 import 'vant/lib/index.css';
 import dayjs from 'dayjs';
 
+
+type selectedValues = {
+  selectedIndexes:string[],
+  selectedOptions:object[],
+  selectedValues:string[],
+}
+
 export const InputPad = defineComponent({
   props: {
     name: { type: String as PropType<string> },
@@ -35,6 +42,11 @@ export const InputPad = defineComponent({
     const closePopup = () => {
       refShowPop.value = false
     }
+    const setDate = (date:selectedValues) => {
+      console.log(date);
+      refDate.value = date.selectedValues
+      closePopup()
+    }
     return () => (
       <>
         <span class={s.dateAndAmount}>
@@ -47,7 +59,7 @@ export const InputPad = defineComponent({
               })}
             </span>
             <Popup position="bottom" v-model:show={refShowPop.value}>
-              <DatePicker v-model={refDate.value} title="选择日期" onConfirm={() => closePopup()} onCancel={() => closePopup()}/>
+              <DatePicker modelValue={refDate.value} title="选择年月日" onConfirm={(date) => setDate(date)} onCancel={() => closePopup()}/>
             </Popup>
           </span>
           <span class={s.amount}>{refAmount.value}</span>
