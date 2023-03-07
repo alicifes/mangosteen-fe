@@ -36,8 +36,7 @@ export const InputPad = defineComponent({
     ]
     const refAmount = ref('0')
     const appendText = (num: Number | ".") => {
-      console.log(num);
-      console.log(refDate.value);
+      refAmount.value += num
     };
     const closePopup = () => {
       refShowPop.value = false
