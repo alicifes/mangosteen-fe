@@ -36,6 +36,15 @@ export const InputPad = defineComponent({
     ]
     const refAmount = ref('0')
     const appendText = (num: Number | ".") => {
+      const doNetIndex = refAmount.value.indexOf('.')
+      const numString = num.toString()
+      if(refAmount.value.length >= 13) return
+      if(refAmount.value.length -doNetIndex >2 && doNetIndex >= 0) return
+      if(doNetIndex >= 0 && numString === '.') return
+      if(refAmount.value.toString() === '0'){
+        refAmount.value = numString
+        return
+      }
       refAmount.value += num
     };
     const closePopup = () => {
