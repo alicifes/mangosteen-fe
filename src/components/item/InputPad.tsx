@@ -42,6 +42,10 @@ export const InputPad = defineComponent({
       if(refAmount.value.length -doNetIndex >2 && doNetIndex >= 0) return
       if(doNetIndex >= 0 && numString === '.') return
       if(refAmount.value.toString() === '0'){
+        if(num === '.'){
+          refAmount.value = '0.'
+          return
+        }
         refAmount.value = numString
         return
       }
