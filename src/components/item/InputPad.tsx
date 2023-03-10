@@ -55,7 +55,6 @@ export const InputPad = defineComponent({
       refShowPop.value = false
     }
     const setDate = (date:selectedValues) => {
-      console.log(date);
       refDate.value = date.selectedValues
       closePopup()
     }
