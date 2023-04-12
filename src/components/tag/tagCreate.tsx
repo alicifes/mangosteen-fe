@@ -3,6 +3,7 @@ import { Icon } from "../../shared/Icon";
 import { MainLayout } from "../../layouts/MainLayout";
 import s from "./tagCreate.module.scss";
 import { Button } from '../../shared/Button';
+import { EmojiSelect } from "../../shared/EmojiSelect";
 export const tagCreate = defineComponent({
   props: {
     name: { type: String as PropType<string> },
@@ -31,7 +32,7 @@ export const tagCreate = defineComponent({
                   <div class={s.formRow}>
                     <labe class={s.formLabel}>
                       <span class={s.formItem_name}>符号</span>
-                      <div>很多emoj</div>
+                      <EmojiSelect />
                       <div class={s.formItem_errorHint}>
                         <span>必填</span>
                       </div>
