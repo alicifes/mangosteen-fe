@@ -4,8 +4,11 @@ import { emojiList } from "./emojiList";
 
 export const EmojiSelect = defineComponent({
   props: {
-    name: { type: String as PropType<string> },
+    modelValue: {
+      type: String,
+    },
   },
+  emits: ["update:modelValue"],
   setup: (props, context) => {
     const refSelected = ref(1);
     const table: [string, string[]][] = [
@@ -84,18 +87,33 @@ export const EmojiSelect = defineComponent({
       return selectedItem.map((category) =>
         emojiList
           .find((item) => item[0] === category)?.[1]
-          .map((item) => <li>{item}</li>)
+          .map((item) => (
+            <li
+              onClick={() => onClickEmoji(item)}
+              class={props.modelValue === item ? s.selectedEmoji : ""}
+            >
+              {item}
+            </li>
+          ))
       );
     });
     const onClickTab = (index: number) => {
       refSelected.value = index;
+    };
+    const onClickEmoji = (item: string) => {
+      context.emit("update:modelValue", item);
     };
     return () => (
       <>
         <div class={s.emojiList}>
           <nav>
             {table.map((item, index) => (
-              <span onClick={() => onClickTab(index)}>{item[0]}</span>
+              <span
+                class={index === refSelected.value ? s.selected : ""}
+                onClick={() => onClickTab(index)}
+              >
+                {item[0]}
+              </span>
             ))}
           </nav>
           <ol>{emojis.value}</ol>
