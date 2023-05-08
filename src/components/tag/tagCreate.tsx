@@ -4,6 +4,7 @@ import { MainLayout } from "../../layouts/MainLayout";
 import s from "./tagCreate.module.scss";
 import { Button } from "../../shared/Button";
 import { EmojiSelect } from "../../shared/EmojiSelect";
+import { FData, Rules, validate } from "../../shared/validate";
 export const tagCreate = defineComponent({
   props: {
     name: { type: String as PropType<string> },
@@ -11,23 +12,28 @@ export const tagCreate = defineComponent({
   setup: (props, context) => {
     const formData = reactive({
       name: "",
-      sign: " ",
+      sign: "",
     });
-    const validate = (formData:Object,rules:Array<Object>) => {
-      console.log(formData);
-      console.log(rules);
-    }
-    const onSubmit = (e:Event) => {
-      console.log('enter');
-      console.log(toRaw(formData));
-      const rules = [
-        {key:'name',required:true,message:'必填'},
-        {key:'name',pattern:/^.{1,4}$/,message:'必填'},
-        {key:'sign',required:true,message:'必填'},
-      ]
-      const errors = validate(formData,rules)
-      e.preventDefault()
-    }
+    const errors = reactive<{ [k in keyof typeof formData]?: string[] }>({});
+    const onSubmit = (e: Event) => {
+      const rules: Rules<typeof formData> = [
+        { key: "name", type: "required", message: "必填" },
+        {
+          key: "name",
+          type: "pattern",
+          regex: /^.{1,4}$/,
+          message: "请输入1~4个字符",
+        },
+        { key: "sign", type: "required", message: "必填" },
+      ];
+      Object.assign(errors, {
+        name: undefined,
+        sign: undefined
+      })
+      Object.assign(errors, validate(formData, rules))
+      console.log(errors);
+      e.preventDefault();
+    };
     return () => (
       <>
         <MainLayout>
@@ -47,16 +53,16 @@ export const tagCreate = defineComponent({
                         />
                       </div>
                       <div class={s.formItem_errorHint}>
-                        <span>必填</span>
+                        <span>{errors.name?.[0] ?? <span>&nbsp;</span>}</span>
                       </div>
                     </label>
                   </div>
                   <div class={s.formRow}>
                     <labe class={s.formLabel}>
                       <span class={s.formItem_name}>符号 {formData.sign}</span>
-                      <EmojiSelect v-model={formData.sign}/>
+                      <EmojiSelect v-model={formData.sign} />
                       <div class={s.formItem_errorHint}>
-                        <span>必填</span>
+                        <span>{errors.sign?.[0] ?? " "}</span>
                       </div>
                     </labe>
                   </div>
