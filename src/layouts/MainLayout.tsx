@@ -1,5 +1,7 @@
 import { defineComponent, PropType } from "vue";
 import { Navbar } from "../shared/Navbar";
+import s from './MainLayout.module.scss'
+
 export const MainLayout = defineComponent({
   props: {
     name: { type: String as PropType<String> },
@@ -7,13 +9,15 @@ export const MainLayout = defineComponent({
   setup: (props, context) => {
     return () => (
       <>
-        <Navbar>
-          {{
-            default: () => context.slots.title?.(),
-            icon: () => context.slots.icon?.(),
-          }}
-        </Navbar>
-        {context.slots.default?.()}
+        <div class={s.wrapper}>
+          <Navbar class={s.navbar}>
+            {{
+              default: () => context.slots.title?.(),
+              icon: () => context.slots.icon?.(),
+            }}
+          </Navbar>
+          {context.slots.default?.()}
+        </div>
       </>
     );
   },

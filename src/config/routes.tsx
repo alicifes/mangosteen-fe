@@ -13,6 +13,8 @@ import { ThirdActions } from "../components/welcome/ThirdActions";
 import { ItemPage } from "../views/ItemPage";
 import { StartPage } from "../views/StartPage";
 import { Welcome } from "../views/Welcome";
+import { TagPage } from "../views/TagPage";
+import { TagEdit } from "../components/tag/tagEdit";
 
 export const routes: RouteRecordRaw[] = [
   { path: "/", redirect: "/welcome" },
@@ -59,7 +61,17 @@ export const routes: RouteRecordRaw[] = [
     ],
   },
   {
-    path:"/tags/create",
-    component:tagCreate
-  }
+    path: "/tags",
+    component: TagPage,
+    children: [
+      {
+        path: "create",
+        component: tagCreate,
+      },
+      {
+        path: ":id/edit",
+        component: TagEdit,
+      },
+    ],
+  },
 ];

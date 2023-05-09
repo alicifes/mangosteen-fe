@@ -43,4 +43,14 @@
       min-height: 18px;
     }
   }
-  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px 16px 16px;
+    .removeTags {
+        width: calc(50% - 8px);
+    }
+    .removeTagsAndItems {
+        width: calc(50% - 8px);
+    }
+  }
