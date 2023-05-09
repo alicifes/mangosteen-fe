@@ -3,8 +3,16 @@ import s from "./Tabs.module.scss";
 export const Tabs = defineComponent({
   props: {
     selected: { type: String as PropType<string> },
+    classPrefix: {
+      type: String,
+    },
+    onUpdateSelected: {
+      type: Function as PropType<(name: string) => void>,
+      required: false,
+    },
   },
   setup: (props, context) => {
+    const cp = props.classPrefix;
     return () => {
       const tabs = context.slots.default?.();
       if (!tabs) return () => null;
@@ -14,24 +22,25 @@ export const Tabs = defineComponent({
         }
       }
       return (
-        <div class={s.tabs}>
-          <ul class={s.tabs_nav}>
-            {tabs.map((item) => {
-              return (
-                <li
-                  class={item.props?.name === props.selected ? s.selected : ""}
-                  onClick={() =>
-                    context.emit("update:selected", item.props?.name)
-                  }
-                >
-                  {item.props?.name}
-                </li>
-              );
-            })}
-          </ul>
-          <div>
-            {tabs.find(item => item.props?.name === props.selected)}
-          </div>
+        <div class={[s.tabs, cp + "_tabs"]}>
+          <ol class={[s.tabs_nav, cp + "_tabs_nav"]}>
+            {tabs.map((item) => (
+              <li
+                class={[
+                  item.props?.name === props.selected
+                    ? [s.selected, cp + "_selected"]
+                    : "",
+                  cp + "_tabs_nav_item",
+                ]}
+                onClick={() =>
+                  context.emit("update:selected", item.props?.name)
+                }
+              >
+                {item.props?.name}
+              </li>
+            ))}
+          </ol>
+          <div>{tabs.find((item) => item.props?.name === props.selected)}</div>
         </div>
       );
     };

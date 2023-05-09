@@ -14,7 +14,7 @@ import { ItemPage } from "../views/ItemPage";
 import { StartPage } from "../views/StartPage";
 import { Welcome } from "../views/Welcome";
 import { TagPage } from "../views/TagPage";
-import { TagEdit } from "../components/tag/tagEdit";
+import { TagEdit } from "../components/tag/TagEdit";
 
 export const routes: RouteRecordRaw[] = [
   { path: "/", redirect: "/welcome" },
