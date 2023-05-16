@@ -1,9 +1,10 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType } from "vue";
 export const ItemSummary = defineComponent({
-    props:{
-        name:{type:String as PropType<name>}
-    },
-    setup:(props,context)=>{
-        return () => <div>12312312</div>;
-    }
-})
+  props: {
+    startDate: { type: String as PropType<string>, required: true },
+    endDate: { type: String as PropType<string>, required: true },
+  },
+  setup: (props, context) => {
+    return () => <div>12312312</div>;
+  },
+});
